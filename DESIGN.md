@@ -9,11 +9,18 @@
 
 Frame World playstyle (single expanding “home” that eats the galaxy’s pops/economy) but as a **nomad ark**: mobile capital, not a black-hole frame planet. Visuals later — reuse standard Giga/Frame ark / habitat ship gfx for now.
 
-## Dependencies (assumed; confirm in QUESTIONS)
+## Target lock (Thomas 2026-09-20)
 
-1. Gigastructural Engineering & More (4.4 workshop line; historically Steam `1121692237`)
-2. Likely UI Overhaul Dynamic + Giga UIOD patch if we lean on XHK Frameworld Fix patterns
-3. **Nomads** — vanilla 4.4 Nomadic (`is_nomadic` country trigger / government restriction) compatible origin. Potato does **not** hard-require a third-party “Nomads patch”.
+- **Game:** Vanilla Stellaris **4.4**
+- **Nomads meaning:** vanilla 4.4 **Nomadic** (`is_nomadic` / empire Nomadic mode) — **not** a Workshop Nomads patch
+- **Hard dependency:** Gigastructural Engineering & More only
+- **Optional later:** UI Overhaul Dynamic (+ Giga UIOD) only if Frame Fix UI path is required
+
+## Dependencies
+
+1. **Gigastructural Engineering & More** (4.4 workshop line; historically Steam `1121692237`) — **required**
+2. **UI Overhaul Dynamic** (+ Giga UIOD patch) — **only if** a later Frame Fix path needs it; not potato-required
+3. **Vanilla 4.4 Nomadic** — design assumes Nomadic empire mode (`is_nomadic`). Public reference origin: Voidfarers `origin_default_nomads`. No third-party Nomads workshop pack.
 4. Optional reference: `[4.4] XHK Frameworld 4.4 Fix` (Steam `3615040887`) as structural inspiration — do **not** require players to run XHK unless we explicitly depend.
 
 ## Potato deliverable (shipped)
@@ -31,7 +38,7 @@ Cloneable Stellaris mod folder (this repo root = mod folder):
 
 ## Constraint
 
-**No Stellaris game files.** May download **mod packages** (SteamCMD workshop, mirrors) and public docs only. Potato spike could not run SteamCMD on this box (32-bit loader missing) — scaffolded from public docs only; Giga/XHK script keys remain TODO.
+**No Stellaris game files.** May download **mod packages** (SteamCMD workshop, mirrors) and public docs only. Potato spike could not run SteamCMD on this box (32-bit loader missing) — scaffolded from public docs only; Giga/XHK script keys remain TODO — do **not** invent Giga frame keys.
 
 ## Non-goals
 

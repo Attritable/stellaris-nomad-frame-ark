@@ -1,7 +1,11 @@
 # Nomad Frame Ark — potato origin stub
-# Compatible with Stellaris 4.4 Nomadic (is_nomadic) where possible.
+# TARGET LOCK (Thomas): Vanilla Stellaris 4.4 Nomadic + Gigastructural Engineering only.
+# "Nomads" = vanilla 4.4 Nomadic empire mode (is_nomadic), NOT a Workshop Nomads patch.
+# Public vanilla Nomadic origin reference: Voidfarers = origin_default_nomads
+# Other public Nomad origins (DLC): origin_heirs_of_the_khan, origin_sacred_path, origin_forever_cruise
+# DD #424: is_nomadic government restriction + is_nomadic country trigger + create_country is_nomadic
 # TODO: wire Giga Frame World / XHK hooks once workshop packages are inspected
-#       (pc_giga_frameworld, giga_has_frameworld_origin, frameworld_* flags — keys unconfirmed).
+#       (pc_giga_frameworld, giga_has_frameworld_origin, frameworld_* — keys UNCONFIRMED; do NOT invent)
 
 origin_nomad_frame_ark = {
 	is_origin = yes
@@ -13,15 +17,18 @@ origin_nomad_frame_ark = {
 	flags = { nomad_frame_ark_origin }
 
 	# Soft Nomads DLC gate — if DLC absent, still show for potato load-test of structure
-	# TODO: confirm exact DLC string for Nomads expansion when known
+	# TODO: confirm exact host_has_dlc string for Nomads expansion when known from game files
 	# playable = { host_has_dlc = "Nomads" }
 
-	# Nomadic-compatible: 4.4 adds is_nomadic government restriction / country trigger.
-	# Do NOT force is_nomadic = no. Exact civic/origin restriction syntax TBD from game files.
+	# Vanilla 4.4 Nomadic-compatible. Do NOT force is_nomadic = no.
+	# Intended: selectable with Nomadic empire mode enabled (alongside / instead of Voidfarers).
+	# Exact special-requirement syntax for government/is_nomadic not confirmed from game files;
+	# keep hard require commented so potato loads without inventing restriction grammar.
 	possible = {
 		ethics = { NOT = { value = ethic_gestalt_consciousness } }
-		# TODO: add is_nomadic restriction block once documented in game/mod packages
-		# TODO: exclude conflicting Frame World origin key if still present in Giga/XHK
+		# When confirmed from 4.4 game files / DD #424 government restriction, prefer e.g.:
+		# government = { is_nomadic = yes }
+		# Do NOT invent Giga Frame World origin exclusions until keys are inspected.
 	}
 
 	description = "origin_nomad_frame_ark_effects"

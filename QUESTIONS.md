@@ -2,11 +2,14 @@
 
 Running list for Thomas. Do not block potato spike on these — defaults noted.
 
-## Must-ask eventually (non-blocking defaults)
+## RESOLVED (Thomas 2026-09-20)
 
-1. **Target game version?** Default assume Stellaris 4.4 + current Giga workshop line (`supported_version = "v4.4.*"`).
-2. **Required mods / load order?** Default: Gigastructural Engineering → UI Overhaul Dynamic (if Frame Fix needs it) → XHK Frameworld Fix (reference only) → **this mod**. See README.
-3. **What is “Nomads patch” exactly?** Workshop name/id? Default: treat as vanilla 4.4 Nomadic (`is_nomadic`); no third-party Nomads pack required for potato.
+1. **Target game version?** **LOCKED:** Stellaris **Vanilla 4.4** (`supported_version = "v4.4.*"`) + current Giga workshop line.
+2. **What is “Nomads”?** **LOCKED:** **vanilla 4.4 Nomadic** (empire Nomadic toggle / `is_nomadic` country trigger + government restriction from DD #424). **NOT** a separate Steam Workshop “Nomads patch.” Public Voidfarers origin key: `origin_default_nomads`. No third-party Nomads pack in the dependency list.
+3. **Required mods?** **LOCKED hard dep:** **Gigastructural Engineering & More** only. **UI Overhaul Dynamic** (+ Giga UIOD patch) only if a later Frame Fix path requires it — not required for potato. XHK Frameworld Fix remains optional reference, not a hard dep.
+
+## Still open (non-blocking defaults)
+
 4. **Scope of ark playstyle:** start with one ark megastructure/ship as capital like Frame World (mobile habitat economy on a ship), OR also Frame-style planetary strip-to-outpost loop? Default potato: flags only + confirm event; no megastructure spawn yet.
 5. **Origin name / civic?** Default: `Nomad Frame Ark` / `origin_nomad_frame_ark` (shipped).
 6. **Multiplayer / AI?** Default: player-only (`random_weight = { base = 0 }`).
@@ -23,9 +26,9 @@ Until packages are inspected locally by Thomas (or SteamCMD works elsewhere), th
 | `pc_giga_frameworld` | UNCONFIRMED — not used in potato scripts |
 | `giga_has_frameworld_origin` | UNCONFIRMED |
 | `frameworld_upgrade` / other `frameworld_*` flags | Mentioned on XHK Fix page; not wired |
-| Exact Giga Frame World origin key (disabled in main Giga for 4.0+) | UNKNOWN — Frame restored via XHK Fix |
-| Exact Nomads DLC `host_has_dlc` string | UNKNOWN — playable gate commented out |
-| `is_nomadic` civic/origin restriction syntax | Documented as existing in DD #424; exact special-requirement block not copied into potato `possible = {}` |
+| Exact Giga Frame World origin key (disabled in main Giga for 4.0+) | UNKNOWN — Frame restored via XHK Fix; do not invent |
+| Exact Nomads DLC `host_has_dlc` string | UNKNOWN — playable gate commented out; Nomadic is vanilla 4.4 + Nomads DLC content |
+| Exact `possible` government/`is_nomadic` special-requirement syntax | DD #424 documents government restriction + country trigger; potato comments document intent; hard `is_nomadic = yes` block left commented until game files confirm |
 
 ## Blockers that would stop a real in-game prove
 
