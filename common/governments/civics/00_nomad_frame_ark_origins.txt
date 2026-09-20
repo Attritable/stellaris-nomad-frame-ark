@@ -1,0 +1,35 @@
+# Nomad Frame Ark — potato origin stub
+# Compatible with Stellaris 4.4 Nomadic (is_nomadic) where possible.
+# TODO: wire Giga Frame World / XHK hooks once workshop packages are inspected
+#       (pc_giga_frameworld, giga_has_frameworld_origin, frameworld_* flags — keys unconfirmed).
+
+origin_nomad_frame_ark = {
+	is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_default.dds"
+	# TODO: custom picture GFX once art exists; reuse default for potato
+	picture = GFX_origin_default
+
+	# Player-only potato (mirror XHK Frameworld Fix AI disable intent)
+	flags = { nomad_frame_ark_origin }
+
+	# Soft Nomads DLC gate — if DLC absent, still show for potato load-test of structure
+	# TODO: confirm exact DLC string for Nomads expansion when known
+	# playable = { host_has_dlc = "Nomads" }
+
+	# Nomadic-compatible: 4.4 adds is_nomadic government restriction / country trigger.
+	# Do NOT force is_nomadic = no. Exact civic/origin restriction syntax TBD from game files.
+	possible = {
+		ethics = { NOT = { value = ethic_gestalt_consciousness } }
+		# TODO: add is_nomadic restriction block once documented in game/mod packages
+		# TODO: exclude conflicting Frame World origin key if still present in Giga/XHK
+	}
+
+	description = "origin_nomad_frame_ark_effects"
+
+	advanced_start = yes
+
+	# AI off for potato — Frame Fix style
+	random_weight = {
+		base = 0
+	}
+}

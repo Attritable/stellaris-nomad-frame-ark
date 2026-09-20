@@ -1,0 +1,6 @@
+# Nomad Frame Ark — potato on_actions
+on_game_start_country = {
+	events = {
+		nomad_frame_ark.1
+	}
+}

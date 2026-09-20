@@ -1,0 +1,49 @@
+namespace = nomad_frame_ark
+
+# Potato start: mark empire + capital with ark flags
+country_event = {
+	id = nomad_frame_ark.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_origin = origin_nomad_frame_ark
+	}
+
+	immediate = {
+		set_country_flag = nomad_frame_ark_empire
+		set_country_flag = has_ark_capital
+		# TODO: once Giga/XHK keys known, also set frameworld-compatible flags here
+		# e.g. set_country_flag = giga_has_frameworld_origin  (KEY UNCONFIRMED)
+
+		if = {
+			limit = { exists = capital_scope }
+			capital_scope = {
+				set_planet_flag = nomad_frame_ark_capital
+				set_planet_flag = ark_capital
+				# TODO: planet class / megastructure swap to Giga ark / frame capital
+				# e.g. change_pc = pc_giga_frameworld  (KEY UNCONFIRMED — do not invent)
+			}
+		}
+
+		# Flavor ping for human player so potato is observable in-game
+		if = {
+			limit = { is_ai = no }
+			country_event = { id = nomad_frame_ark.2 days = 1 }
+		}
+	}
+}
+
+# Visible potato confirmation event
+country_event = {
+	id = nomad_frame_ark.2
+	title = nomad_frame_ark.2.name
+	desc = nomad_frame_ark.2.desc
+	picture = GFX_evt_ship_in_orbit
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = nomad_frame_ark.2.a
+	}
+}
