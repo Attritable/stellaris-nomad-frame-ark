@@ -1,7 +1,7 @@
-﻿l_english:
+l_english:
  origin_nomad_frame_ark:0 "Nomad Frame Ark"
- origin_nomad_frame_ark_desc:0 "Our people abandoned fixed worlds for a single mobile ark — a Frame-inspired capital that wanders the stars, gathering pops and industry as it goes. Potato stub: full Frame/Giga district parity not yet wired."
- origin_nomad_frame_ark_effects:0 "§HEffects:§!\nStart with an §YArk Capital§! flag on your homeworld (potato).\nIntended playstyle: mobile Frame World–like capital via Gigastructures hooks (TODO).\n§RAI will not pick this origin.§!"
+ origin_nomad_frame_ark_desc:0 "Our people abandoned fixed worlds for a single mobile ark — a Frame-inspired capital that wanders the stars. Requires Nomadic empire mode (vanilla Nomads DLC) and Gigastructural Engineering. Potato: Frame district/outpost parity not yet wired."
+ origin_nomad_frame_ark_effects:0 "§HEffects:§!\nRequires §YNomadic§! empire mode (§Yis_nomadic§!).\nDay-1 flags: §Yark_capital§! / §Ynomad_frame_ark_capital§! on capital (potato).\nDoes §Rnot§! use Giga's disabled §Yorigin_frameworld§! / §Ypc_giga_frameworld§! start.\n§RAI will not pick this origin.§!"
  nomad_frame_ark.2.name:0 "Ark Capital Online"
- nomad_frame_ark.2.desc:0 "The Nomad Frame Ark origin potato is active. Capital flagged as ark_capital / nomad_frame_ark_capital. Wire Giga Frame World systems next."
+ nomad_frame_ark.2.desc:0 "Nomad Frame Ark potato is active. Origin requires is_nomadic. Capital flagged ark_capital / nomad_frame_ark_capital. Giga Frame World origin remains disabled upstream; this origin is a separate mobile-ark path."
  nomad_frame_ark.2.a:0 "Noted."

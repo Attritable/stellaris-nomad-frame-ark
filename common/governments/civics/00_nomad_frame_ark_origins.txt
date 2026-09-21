@@ -1,41 +1,52 @@
-# Nomad Frame Ark — potato origin stub
-# TARGET LOCK (Thomas): Vanilla Stellaris 4.4 Nomadic + Gigastructural Engineering only.
-# "Nomads" = vanilla 4.4 Nomadic empire mode (is_nomadic), NOT a Workshop Nomads patch.
-# Public vanilla Nomadic origin reference: Voidfarers = origin_default_nomads
-# Other public Nomad origins (DLC): origin_heirs_of_the_khan, origin_sacred_path, origin_forever_cruise
-# DD #424: is_nomadic government restriction + is_nomadic country trigger + create_country is_nomadic
-# TODO: wire Giga Frame World / XHK hooks once workshop packages are inspected
-#       (pc_giga_frameworld, giga_has_frameworld_origin, frameworld_* — keys UNCONFIRMED; do NOT invent)
+# Nomad Frame Ark — potato origin
+# Keys sourced from local Stellaris 4.4 + Giga 3.39.4 install slices under /workspace/stellaris-refs/
+# (not invented). See KEYS.md.
+#
+# Vanilla Nomadic (00_origins.txt):
+#   origin_default_nomads (Voidfarers) uses possible = { is_nomadic = yes } + playable has_nomads_dlc
+#   is_nomadic = hardcoded country/government special requirement (NOT defined as scripted trigger
+#               in 09_scripted_triggers_nomads.txt; that file only *uses* it)
+#   has_nomads_dlc = { host_has_dlc = "Nomads" }  (09_scripted_triggers_nomads.txt)
+#
+# Giga Frame World (frameworld_origins.txt):
+#   origin_frameworld — DISABLED in Giga 4.4 line (possible = { always = no } "Disabled for 4.0")
+#   starting_colony = pc_giga_frameworld; initializers = giga_frameworld_system
+#   This mod ships a SEPARATE origin (mobile ark), not a re-enable of origin_frameworld.
 
 origin_nomad_frame_ark = {
 	is_origin = yes
-	icon = "gfx/interface/icons/origins/origins_default.dds"
-	# TODO: custom picture GFX once art exists; reuse default for potato
-	picture = GFX_origin_default
+	icon = "gfx/interface/icons/origins/origins_default_nomads.dds"
+	# TODO(art): custom picture GFX; reuse vanilla nomad default picture for potato
+	picture = GFX_origin_nomad_default
 
-	# Player-only potato (mirror XHK Frameworld Fix AI disable intent)
-	flags = { nomad_frame_ark_origin }
+	# Match other vanilla Nomadic origins (00_origins.txt origin_default_nomads et al.)
+	non_colonizable_planet_class_neighbor = yes
 
-	# Soft Nomads DLC gate — if DLC absent, still show for potato load-test of structure
-	# TODO: confirm exact host_has_dlc string for Nomads expansion when known from game files
-	# playable = { host_has_dlc = "Nomads" }
+	flags = {
+		custom_start_screen
+		nomad_frame_ark_origin
+	}
 
-	# Vanilla 4.4 Nomadic-compatible. Do NOT force is_nomadic = no.
-	# Intended: selectable with Nomadic empire mode enabled (alongside / instead of Voidfarers).
-	# Exact special-requirement syntax for government/is_nomadic not confirmed from game files;
-	# keep hard require commented so potato loads without inventing restriction grammar.
+	playable = {
+		has_nomads_dlc = yes
+	}
+	# Potato: keep AI off (Frame Fix style). Voidfarers uses has_nomads_dlc for AI.
+	ai_playable = { always = no }
+
+	# Same special-requirement grammar as Voidfarers / Sacred Path / Heirs / Forever Cruise
 	possible = {
-		ethics = { NOT = { value = ethic_gestalt_consciousness } }
-		# When confirmed from 4.4 game files / DD #424 government restriction, prefer e.g.:
-		# government = { is_nomadic = yes }
-		# Do NOT invent Giga Frame World origin exclusions until keys are inspected.
+		is_nomadic = yes
 	}
 
 	description = "origin_nomad_frame_ark_effects"
 
 	advanced_start = yes
 
-	# AI off for potato — Frame Fix style
+	# Do NOT set starting_colony = pc_giga_frameworld or initializers = giga_frameworld_system —
+	# those are Frame World's stationary black-hole capital (giga_origin_frameworld.txt).
+	# Nomadic capital is arkship-based (vanilla nomad_init initializers / arkship tiers).
+	# Product TODO: whether to later blend Frame outpost strip loop — see QUESTIONS.md
+
 	random_weight = {
 		base = 0
 	}

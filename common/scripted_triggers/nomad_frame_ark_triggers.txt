@@ -1,0 +1,20 @@
+# Nomad Frame Ark — scripted triggers
+# Sourced / composed from local refs; do not invent Giga keys.
+
+# Country scope — this mod's origin
+is_nomad_frame_ark_empire = {
+	has_origin = origin_nomad_frame_ark
+}
+
+# Country scope — potato day-1 flag (set by nomad_frame_ark.1)
+has_nomad_frame_ark_capital_flag = {
+	has_country_flag = has_ark_capital
+}
+
+# NOTE (giga_frameworld_triggers.txt):
+#   giga_has_frameworld_origin = { has_origin = origin_frameworld }
+#   giga_is_frame_world = { is_planet_class = pc_giga_frameworld }
+# Those are Giga's triggers. origin_frameworld is disabled in Giga 4.4 (always = no).
+# This mod does NOT set has_origin = origin_frameworld and does NOT change_pc to
+# pc_giga_frameworld on day 1 (would break nomadic ark capital). Call Giga triggers
+# only if you intentionally overlap with a re-enabled Frame World install.
